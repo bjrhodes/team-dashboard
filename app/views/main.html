@@ -23,6 +23,9 @@
     </div>
   </div>
 
+  <pre ng-bind="response | json"></pre>
+
+
   <div ng-if="error" class="alert alert-danger">
     <strong>{{error.statusText}}</strong>
     <hr>

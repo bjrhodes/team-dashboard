@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'pouchdb'
   ])
   .config(function ($routeProvider) {
     $routeProvider
