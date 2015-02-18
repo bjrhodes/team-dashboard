@@ -8,7 +8,7 @@
         <h4>Current Totals</h4>
       </div>
       <div class="panel-body">
-        <canvas ng-if="graphsReady" id="bar" class="chart chart-bar" data="teamTotals.data" labels="teamTotals.labels"></canvas>
+        <canvas ng-if="graphsReady" id="bar" class="chart chart-bar" data="teamTotals.data" labels="teamTotals.labels" width="300" height="520"></canvas>
       </div>
     </div>
   </div>
@@ -34,7 +34,7 @@
     </div>
   </div>
 
-  <div class="col-md-12">
+  <div class="col-md-12" ng-if="debug">
     <pre ng-bind="response | json"></pre>
   </div>
 

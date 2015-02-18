@@ -7,6 +7,6 @@
  * # AboutCtrl
  * Controller of the easterdashApp
  */
-angular.module('easterdashApp')
-  .controller('AboutCtrl', function () {
-  });
+angular.module('easterdashApp').controller('AboutCtrl', function () {
+
+});

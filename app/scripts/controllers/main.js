@@ -8,6 +8,10 @@
  * Controller of the easterdashApp
  */
 angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb) {
+    var dbError = function(response) {
+        $scope.loading = false;
+        $scope.response = response;
+    };
     var buildGraphs = function() {
         $scope.teamTotals = {labels: [], data: [[]]};
 
@@ -30,22 +34,18 @@ angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb)
 
     $scope.teams = [];
     $scope.graphsReady = false;
+    $scope.debug = false;
 
-    teamDb.get('thing1')
+    teamDb.get('teams')
         .then(function(response) {
             $scope.response = response;
-            $scope.loading = false;
-            $scope.teams = [ /* @todo get tyhis shizniz from the DBiz for riz */
-                {name: 'Team #A', description: 'Doing some awesome stuff an\' that!', currentBalance:123},
-                {name: 'Team #2', description: 'Doing some awesome stuff an\' that!', currentBalance:231},
-                {name: 'Team #III', description: 'Doing some awesome stuff an\' that!', currentBalance:213},
-                {name: 'Team #Ω', description: 'Doing some awesome stuff an\' that!', currentBalance:312}
-            ];
-            buildGraphs();
+            if (response.data) {
+                $scope.loading = false;
+                $scope.teams = response.data;
+                buildGraphs();
+            } else {
+                dbError(response);
+            }
         })
-        .catch(function(response) {
-            $scope.loading = false;
-            $scope.response = response;
-        });
-
+        .catch(dbError);
 });
