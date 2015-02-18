@@ -2,29 +2,41 @@
 
   <p ng-if="loading">Loading...</p>
 
-  <div ng-repeat="thing in awesomeThings" class="col-md-6">
-    <div class="panel panel-default">
-
+  <div class="col-md-4">
+    <div class="panel-default panel">
       <div class="panel-heading">
-        <h4>{{thing.name}}</h4>
+        <h4>Current Totals</h4>
       </div>
-
       <div class="panel-body">
-
-        <p ng-if="thing.description">{{thing.description}}</p>
-        <p ng-if="thing.loading">Loading...</p>
-        <div ng-if="thing.error" class="alert alert-danger">
-          <strong>{{thing.error.statusText}}</strong>
-          <hr>
-          <p>{{thing.error.description}}</p>
-        </div>
-
+        <canvas ng-if="graphsReady" id="bar" class="chart chart-bar" data="teamTotals.data" labels="teamTotals.labels"></canvas>
       </div>
     </div>
   </div>
 
-  <pre ng-bind="response | json"></pre>
+  <div class="col-md-8">
+    <div ng-repeat="team in teams" class="col-md-6">
+      <div class="panel panel-default">
 
+        <div class="panel-heading">
+          <h4>{{team.name}}</h4>
+        </div>
+
+        <div class="panel-body">
+
+          <p ng-if="team.loading">Loading...</p>
+
+          <p ng-if="team.description">{{team.description}}</p>
+
+          <canvas ng-if="graphsReady" id="line" class="chart chart-line" data="team.history.data" labels="team.history.labels" legend="true" series="team.history.series"></canvas>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <pre ng-bind="response | json"></pre>
+  </div>
 
   <div ng-if="error" class="alert alert-danger">
     <strong>{{error.statusText}}</strong>

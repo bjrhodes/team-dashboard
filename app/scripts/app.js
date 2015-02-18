@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'pouchdb'
+    'pouchdb',
+    'chart.js'
   ])
   .config(function ($routeProvider) {
     $routeProvider
