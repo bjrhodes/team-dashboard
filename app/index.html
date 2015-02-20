@@ -9,19 +9,20 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
+    <link rel="stylesheet" href="bower_components/ngModal/dist/ng-modal.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="easterdashApp">
+  <body ng-app="easterdashApp" ng-controller="ApplicationCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header" ng-controller="ApplicationCtrl">
+    <div class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
@@ -43,6 +44,10 @@
               <li ng-class="{active: isActive('/commits')}"><a ng-href="#/commits">Commits</a></li>
               <li ng-class="{active: isActive('/admin')}"><a ng-href="#/admin">admin</a></li>
             </ul>
+
+            <button type="button" class="navbar-btn btn btn-default pull-right" ng-click="showModal('setup')">
+              <span class="glyphicon glyphicon-cog"></span>
+            </button>
           </div>
         </div>
       </div>
@@ -58,6 +63,37 @@
         <p><span class="glyphicon glyphicon-scissors"></span> cut-n-pasted with care</p>
       </div>
     </div>
+
+    <modal-dialog show='modals.setup.visible' dialog-title="setup" class="ng-hide">
+
+      <div class="form-horizontal clearfix">
+          <div class="form-group">
+              <label class="col-sm-3" for="github-username">GitHub username</label>
+              <div class="col-sm-9">
+                <input type="text" ng-model="githubUsername" id="github-username" class="form-control">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="col-sm-3" for="github-password">GitHub password</label>
+              <div class="col-sm-9">
+                <input type="password" ng-model="githubPassword" id="github-password" class="form-control">
+              </div>
+          </div>
+          <hr>
+          <div class="form-group">
+              <label class="col-sm-3" for="db-password">Remote couchDB password [optional]</label>
+              <div class="col-sm-9">
+                <input type="password" ng-model="dbPassword" id="db-password" class="form-control">
+              </div>
+          </div>
+          <hr>
+          <div class="form-group">
+              <div class="col-sm-9">
+                <button ng-click="saveAppSettings()" class="btn btn-primary">Save settings</buttonn>
+              </div>
+          </div>
+    </div>
+    </modal-dialog>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -87,6 +123,7 @@
     <script src="bower_components/angular-pouchdb/dist/angular-pouchdb.js"></script>
     <script src="bower_components/Chart.js/Chart.min.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <script src="bower_components/ngModal/dist/ng-modal.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

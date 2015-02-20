@@ -12,4 +12,16 @@ angular.module('easterdashApp').controller('ApplicationCtrl', function ($scope, 
          var active = (viewLocation === $location.path());
          return active;
     };
+    $scope.showModal = function(id) {
+        if (!$scope.modals[id]) {
+          return;
+        }
+        angular.forEach($scope.modals, function(modal) {
+            modal.visible = false;
+        });
+
+        $scope.modals[id].visible = true;
+    };
+
+    $scope.modals = {setup:{visible: false}};
 });

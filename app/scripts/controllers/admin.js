@@ -23,7 +23,7 @@ angular.module('easterdashApp').controller('AdminCtrl', function ($scope, teamDb
         {name: 'Team #2', description: 'Doing some awesome stuff an\' that!', currentBalance:231},
         {name: 'Team #III', description: 'Doing some awesome stuff an\' that!', currentBalance:213},
         {name: 'Team #Ω', description: 'Doing some awesome stuff an\' that!', currentBalance:312}
-    ]
+    ];
 
     $scope.saveCost = function(costIncurred) { /* @todo */ };
     $scope.savePayout = function(taskDetails) { /* @todo */ };

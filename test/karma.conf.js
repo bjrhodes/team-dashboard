@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/angular-pouchdb/dist/angular-pouchdb.js',
       'bower_components/Chart.js/Chart.min.js',
       'bower_components/angular-chart.js/dist/angular-chart.js',
+      'bower_components/ngModal/dist/ng-modal.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
