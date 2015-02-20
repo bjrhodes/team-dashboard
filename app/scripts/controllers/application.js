@@ -7,7 +7,17 @@
  * # ApplicationCtrl
  * Controller of the easterdashApp
  */
-angular.module('easterdashApp').controller('ApplicationCtrl', function ($scope, $location) {
+angular.module('easterdashApp').controller('ApplicationCtrl', function ($scope, $location, appSettings) {
+    $scope.saveAppSettings = function(saveThis) {
+      appSettings.save(saveThis);
+      $scope.settings = saveThis;
+      $scope.modals.setup.visible = false;
+    };
+    $scope.clearAppSettings = function(saveThis) {
+      appSettings.clearSettings();
+      $scope.settings = {};
+      $scope.modals.setup.visible = false;
+    };
     $scope.isActive = function (viewLocation) {
          var active = (viewLocation === $location.path());
          return active;
@@ -24,4 +34,8 @@ angular.module('easterdashApp').controller('ApplicationCtrl', function ($scope, 
     };
 
     $scope.modals = {setup:{visible: false}};
+    $scope.settings = {};
+    appSettings.get().then(function(response) {
+      $scope.settings = response;
+    });
 });

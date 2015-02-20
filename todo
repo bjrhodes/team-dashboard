@@ -1,4 +1,5 @@
 Get GitHub commits, display sane errors if the repo has no permissions / offline etc.
+Never save passwords! Setup oauth tokens and save those instead!
 Remove placeholder data and wire in admin panels.
 Make DB-sync to couch work.
 Show the save / sync stuff only if remote DB connection is good, otherwise show an option to get the modal back.
