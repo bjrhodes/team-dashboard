@@ -1,6 +1,6 @@
 angular.module('easterdashApp').service('appSettings', function(pouchDB) {
     'use strict';
-    var settings = ['githubUsername', 'githubPassword', 'dbPassword'];
+    var settings = ['dbPassword'];
     var db = pouchDB('appSettings');
     var self = {};
 

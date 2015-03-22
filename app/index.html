@@ -41,7 +41,6 @@
 
             <ul class="nav navbar-nav">
               <li ng-class="{active: isActive('/')}"><a href="#/">Show me the money</a></li>
-              <li ng-class="{active: isActive('/commits')}"><a ng-href="#/commits">Commits</a></li>
               <li ng-class="{active: isActive('/admin')}"><a ng-href="#/admin">admin</a></li>
             </ul>
 
@@ -67,19 +66,6 @@
     <modal-dialog show='modals.setup.visible' dialog-title="setup" class="ng-hide">
 
       <div class="form-horizontal clearfix">
-          <div class="form-group">
-              <label class="col-sm-3" for="github-username">GitHub username</label>
-              <div class="col-sm-9">
-                <input type="text" ng-model="settings.githubUsername" id="github-username" class="form-control">
-              </div>
-          </div>
-          <div class="form-group">
-              <label class="col-sm-3" for="github-password">GitHub password</label>
-              <div class="col-sm-9">
-                <input type="password" ng-model="settings.githubPassword" id="github-password" class="form-control">
-              </div>
-          </div>
-          <hr>
           <div class="form-group">
               <label class="col-sm-3" for="db-password">Remote couchDB password [optional]</label>
               <div class="col-sm-9">

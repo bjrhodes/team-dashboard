@@ -5,3 +5,8 @@ Make DB-sync to couch work.
 Show the save / sync stuff only if remote DB connection is good, otherwise show an option to get the modal back.
 Add to admin the option to delete / rename teams as well as optionally name the github branch
 Be nice to select a github repo from a dropdown once connected?
+
+Setup Pi and clone to new SD cards - how will branching / merging work? Give a git gui to each pi.
+
+Unit test environment for S13?
+
