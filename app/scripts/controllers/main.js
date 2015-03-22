@@ -17,7 +17,7 @@ angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb)
 
         $scope.teams.forEach(function(team) {
             $scope.teamTotals.labels.push(team.name);
-            $scope.teamTotals.data[0].push(team.currentBalance); // The chart allows for multiple plots, so we needd to nest
+            $scope.teamTotals.data[0].push(team.balance); // The chart allows for multiple plots, so we needd to nest
 
             team.history = {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

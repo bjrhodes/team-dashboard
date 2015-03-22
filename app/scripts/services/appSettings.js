@@ -14,7 +14,7 @@ angular.module('easterdashApp').service('appSettings', function(pouchDB) {
         }
         db.get('settings').then(function(response) {
             response[key] = value;
-            return db.put(store);
+            return db.put(response);
         });
     };
 
@@ -45,7 +45,7 @@ angular.module('easterdashApp').service('appSettings', function(pouchDB) {
                 _rev: response._rev,
             };
             return db.remove(doc);
-        })
+        });
     };
 
     return self;

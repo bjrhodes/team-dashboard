@@ -18,6 +18,7 @@ angular
     'ngTouch',
     'pouchdb',
     'ngModal',
+    'ngToast',
     'chart.js'
   ])
   .config(function ($routeProvider) {

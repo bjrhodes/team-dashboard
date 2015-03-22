@@ -13,7 +13,7 @@ angular.module('easterdashApp').controller('ApplicationCtrl', function ($scope, 
       $scope.settings = saveThis;
       $scope.modals.setup.visible = false;
     };
-    $scope.clearAppSettings = function(saveThis) {
+    $scope.clearAppSettings = function() {
       appSettings.clearSettings();
       $scope.settings = {};
       $scope.modals.setup.visible = false;
