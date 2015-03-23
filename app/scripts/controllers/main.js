@@ -14,16 +14,18 @@ angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb)
     };
     var buildGraphs = function() {
         $scope.teamTotals = {labels: [], data: [[]]};
+        $scope.highChart = {useHighStocks: true, series: []};
 
         $scope.teams.forEach(function(team) {
-            team.history = {labels: [], data: [[]], series: ['Historical balance']};
+            var series = {name: team.name, data:[]};
             $scope.teamTotals.labels.push(team.name);
             $scope.teamTotals.data[0].push(team.balance); // The chart allows for multiple plots, so we needd to nest
             if (team.transactions) {
                 team.transactions.forEach(function(transaction) {
-                    team.history.labels.push($scope.formatDate(transaction.time));
-                    team.history.data[0].push(transaction.balance);
+                    series.data.push([transaction.time, transaction.balance]);
                 });
+                $scope.highChart.series.push(series);
+                team.highchart = {useHighStocks: true, series: [series]};
             }
         });
         $scope.graphsReady = true;
