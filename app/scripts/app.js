@@ -27,10 +27,6 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/commits', {
-        templateUrl: 'views/commits.html',
-        controller: 'AboutCtrl'
-      })
       .when('/admin', {
         templateUrl: 'views/admin.html',
         controller: 'AdminCtrl'
