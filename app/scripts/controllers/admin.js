@@ -14,6 +14,7 @@
 angular.module('easterdashApp').controller('AdminCtrl', function ($scope, teamDb, ngToast) {
     var saveTransaction = function(title, delta, teamName) {
         var transaction = {
+            time: new Date().getTime(),
             title: title,
             delta: delta
         };
@@ -21,8 +22,9 @@ angular.module('easterdashApp').controller('AdminCtrl', function ($scope, teamDb
         teamDb.get('teams').then(function(res) {
             res.data.some(function(stored) {
                 if (stored.name === teamName) {
-                    stored.transactions.push(transaction);
                     stored.balance += delta;
+                    transaction.balance = stored.balance;
+                    stored.transactions.push(transaction);
                     return true;
                 }
             });
@@ -34,7 +36,12 @@ angular.module('easterdashApp').controller('AdminCtrl', function ($scope, teamDb
 
     $scope.addTeam = function(team) {
         team.balance = team.balance || 0;
-        team.transactions = [];
+        team.transactions = [{
+            time: new Date().getTime(),
+            title: 'Initial Investment',
+            delta: 0,
+            balance: team.balance
+        }];
         teamDb.get('teams').then(function(res) {
             res.data.push(team);
             teamDb.put(res);
