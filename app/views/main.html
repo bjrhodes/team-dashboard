@@ -28,7 +28,7 @@
           <p ng-if="team.description">{{team.description}}</p>
 
           <canvas ng-if="graphsReady" id="line" class="chart chart-line" data="team.history.data" labels="team.history.labels" legend="true" series="team.history.series"></canvas>
-
+          <highchart ng-if="graphsReady" id="chart1" config="team.highchart"></highchart>
         </div>
       </div>
     </div>

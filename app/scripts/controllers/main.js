@@ -16,6 +16,7 @@ angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb)
         $scope.teamTotals = {labels: [], data: [[]]};
 
         $scope.teams.forEach(function(team) {
+            team.highchart = {useHighStocks: true, series: [{data:[]}]};
             team.history = {labels: [], data: [[]], series: ['Historical balance']};
             $scope.teamTotals.labels.push(team.name);
             $scope.teamTotals.data[0].push(team.balance); // The chart allows for multiple plots, so we needd to nest
@@ -23,6 +24,7 @@ angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb)
                 team.transactions.forEach(function(transaction) {
                     team.history.labels.push($scope.formatDate(transaction.time));
                     team.history.data[0].push(transaction.balance);
+                    team.highchart.series[0].data.push([transaction.time, transaction.balance]);
                 });
             }
         });

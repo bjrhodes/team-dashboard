@@ -19,7 +19,8 @@ angular
     'pouchdb',
     'ngModal',
     'ngToast',
-    'chart.js'
+    'chart.js',
+    'highcharts-ng'
   ])
   .config(function ($routeProvider) {
     $routeProvider
