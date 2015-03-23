@@ -14,21 +14,33 @@
   </div>
 
   <div class="col-md-8">
-    <div ng-repeat="team in teams" class="col-md-6">
-      <div class="panel panel-default">
+    <div class="panel panel-default">
 
-        <div class="panel-heading">
-          <h4>{{team.name}}</h4>
-        </div>
+      <div class="panel-heading">
+        <h4>All teams</h4>
+      </div>
+      <div class="panel-body">
+        <highchart ng-if="graphsReady" id="chart1" config="highChart"></highchart>
+      </div>
+    </div>
 
-        <div class="panel-body">
+    <div class="row">
+      <div ng-repeat="team in teams" class="col-md-6">
+        <div class="panel panel-default">
 
-          <p ng-if="team.loading">Loading...</p>
+          <div class="panel-heading">
+            <h4>{{team.name}}</h4>
+          </div>
 
-          <p ng-if="team.description">{{team.description}}</p>
+          <div class="panel-body">
 
-          <canvas ng-if="graphsReady" id="line" class="chart chart-line" data="team.history.data" labels="team.history.labels" legend="true" series="team.history.series"></canvas>
-          <highchart ng-if="graphsReady" id="chart1" config="team.highchart"></highchart>
+            <p ng-if="team.loading">Loading...</p>
+
+            <p ng-if="team.description">{{team.description}}</p>
+
+            <!-- <canvas ng-if="graphsReady" id="line" class="chart chart-line" data="team.history.data" labels="team.history.labels" legend="true" series="team.history.series"></canvas> -->
+            <highchart ng-if="graphsReady" id="chart1" config="team.highchart"></highchart>
+          </div>
         </div>
       </div>
     </div>
