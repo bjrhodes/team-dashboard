@@ -8,13 +8,23 @@
  * Controller of the easterdashApp
  */
 angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb) {
+    var highchartOptions = {
+        zoomType: 'x',
+        rangeSelector: {enabled: false},
+        legend: {
+            enabled: true,
+            layout: 'vertical',
+            itemMarginBottom: 10
+        },
+        scrollbar: {enabled: false}
+    };
     var dbError = function(response) {
         $scope.loading = false;
         $scope.response = response;
     };
     var buildGraphs = function() {
         $scope.teamTotals = {labels: [], data: [[]]};
-        $scope.highChart = {useHighStocks: true, series: []};
+        $scope.highChart = {options: highchartOptions, useHighStocks: true, series: []};
 
         $scope.teams.forEach(function(team) {
             var series = {name: team.name, data:[]};
@@ -25,7 +35,6 @@ angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb)
                     series.data.push([transaction.time, transaction.balance]);
                 });
                 $scope.highChart.series.push(series);
-                team.highchart = {useHighStocks: true, series: [series]};
             }
         });
         $scope.graphsReady = true;

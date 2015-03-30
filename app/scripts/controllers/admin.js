@@ -13,7 +13,9 @@
  */
 angular.module('easterdashApp').controller('AdminCtrl', function ($scope, teamDb, ngToast) {
     var saveTransaction = function(title, delta, teamName) {
-        var transaction = {
+        var transaction;
+        delta = delta || 0;
+        transaction = {
             time: new Date().getTime(),
             title: title,
             delta: delta
