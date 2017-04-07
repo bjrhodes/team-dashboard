@@ -18,6 +18,7 @@ angular.module('easterdashApp').controller('MainCtrl', ['$scope', 'teamDb', func
         },
         scrollbar: {enabled: false}
     };
+
     var dbError = function(response) {
         $scope.loading = false;
         $scope.response = response;
