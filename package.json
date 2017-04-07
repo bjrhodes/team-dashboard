@@ -40,7 +40,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "clean": "rm -r dist",
+    "clean": "rm -r dist || true",
     "scss": "node-sass --output-style compressed -o dist/styles app/styles",
     "css": "mkdir -p dist/styles && cat node_modules/ngmodal/dist/ng-modal.css node_modules/ng-toast/dist/ngToast.css > dist/styles/vendor.css",
     "fonts": "mkdir -p dist/fonts && cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* dist/fonts",
