@@ -30,7 +30,6 @@ Das ist alles.
 ## "The Grunt Stuff"
 
     npm install;
-    bower install;
     grunt; #to build once
 
     grunt serve; # to work on the thing with live reload etc
