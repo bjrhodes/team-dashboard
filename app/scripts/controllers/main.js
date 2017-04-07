@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the easterdashApp
  */
-angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb) {
+angular.module('easterdashApp').controller('MainCtrl', ['$scope', 'teamDb', function ($scope, teamDb) {
     var highchartOptions = {
         zoomType: 'x',
         rangeSelector: {enabled: false},
@@ -56,4 +56,4 @@ angular.module('easterdashApp').controller('MainCtrl', function ($scope, teamDb)
             }
         })
         .catch(dbError);
-});
+}]);

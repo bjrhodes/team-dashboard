@@ -1,4 +1,4 @@
-angular.module('easterdashApp').service('teamDb', function(pouchDB) {
+angular.module('easterdashApp').service('teamDb', ['pouchDB', function(pouchDB) {
     'use strict';
     return pouchDB('teams');
-});
+}]);

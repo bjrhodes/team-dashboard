@@ -11,7 +11,7 @@
  * {name: 'Team #III', description: 'Doing some awesome stuff an\' that!', balance:213},
  * {name: 'Team #Ω', description: 'Doing some awesome stuff an\' that!', balance:312}
  */
-angular.module('easterdashApp').controller('AdminCtrl', function ($scope, teamDb, ngToast) {
+angular.module('easterdashApp').controller('AdminCtrl', ['$scope', 'teamDb', 'ngToast', function ($scope, teamDb, ngToast) {
     var saveTransaction = function(title, delta, teamName) {
         var transaction;
         delta = delta || 0;
@@ -81,4 +81,4 @@ angular.module('easterdashApp').controller('AdminCtrl', function ($scope, teamDb
         ngToast.create({className: 'success', content: 'Payment saved.'});
         $scope.taskCompleted = {value: '', description: ''};
     };
-});
+}]);

@@ -1,4 +1,4 @@
-angular.module('easterdashApp').service('appSettings', function(pouchDB) {
+angular.module('easterdashApp').service('appSettings', ['pouchDB', function(pouchDB) {
     'use strict';
     var settings = ['dbPassword'];
     var db = pouchDB('appSettings');
@@ -49,4 +49,4 @@ angular.module('easterdashApp').service('appSettings', function(pouchDB) {
     };
 
     return self;
-});
+}]);

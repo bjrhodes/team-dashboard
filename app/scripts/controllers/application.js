@@ -7,7 +7,7 @@
  * # ApplicationCtrl
  * Controller of the easterdashApp
  */
-angular.module('easterdashApp').controller('ApplicationCtrl', function ($scope, $location, appSettings) {
+angular.module('easterdashApp').controller('ApplicationCtrl', ['$scope', '$location', 'appSettings', function ($scope, $location, appSettings) {
   var padZeros = function(str) {
     str = '' + str; // coerce to string, because Javascript.
     while (str.length < 2) {
@@ -49,4 +49,4 @@ angular.module('easterdashApp').controller('ApplicationCtrl', function ($scope, 
     appSettings.get().then(function(response) {
       $scope.settings = response;
     });
-});
+}]);
