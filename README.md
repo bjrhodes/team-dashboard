@@ -20,24 +20,18 @@ karma to the grunt test task and write some tests ya lazy scoundrel.
 
 All the good stuff is in app.
 
-Do all the grunt stuff (below) to make it an application
+Do all the dev stuff (below) to make it an application
 
 Application will be found in dist
 
 Das ist alles.
 
 
-## "The Grunt Stuff"
+## "The Dev Stuff"
 
     npm install;
-    grunt; #to build once
+    npm run buuild:all; #to build once
 
-    grunt serve; # to work on the thing with live reload etc
+    npm run serve; # to serve as an application
 
-
-You will also need a few dependencies, because welcome to front end development:
-
-  * ruby
-  * sass and compass
-  * probably oilyPNG
-  * Here is where yeoman falls down; I have all this stuff always installed so not sure how much of it is used by this particular build. If you find anything extra, add it to the README. Ta.
+There is also a "watch" task in the npm scripts, but I've not used it yet. Once I know it works I'll document that here.
