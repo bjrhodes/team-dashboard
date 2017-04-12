@@ -8,7 +8,8 @@
  * Controller of the easterdashApp
  */
 angular.module('easterdashApp').controller('MainCtrl', ['$scope', 'teamDb', function ($scope, teamDb) {
-    var highchartOptions = {
+    /*var highchartOptions = {
+
         zoomType: 'x',
         rangeSelector: {enabled: false},
         legend: {
@@ -16,8 +17,9 @@ angular.module('easterdashApp').controller('MainCtrl', ['$scope', 'teamDb', func
             layout: 'vertical',
             itemMarginBottom: 10
         },
+	
         scrollbar: {enabled: false}
-    };
+    };*/
 
     var dbError = function(response) {
         $scope.loading = false;
@@ -25,7 +27,34 @@ angular.module('easterdashApp').controller('MainCtrl', ['$scope', 'teamDb', func
     };
     var buildGraphs = function() {
         $scope.teamTotals = {labels: [], data: [[]]};
-        $scope.highChart = {options: highchartOptions, useHighStocks: true, series: []};
+        $scope.highChart = {
+		xAxis: [{
+      			type: 'datetime',
+			title: 'Date/Time',
+			tickInterval: 3600000,
+			breaks: [{
+			            from: 1491841800000,
+			            to: 1491901200000,
+			            breakSize: 1
+        		},{
+			            from: 1491928200000,
+			            to: 1491987600000,
+			            breakSize: 1
+        		},{
+			            from: 1492014600000,
+			            to:  1492074000000,
+			            breakSize: 1
+        		}]
+    		}],
+		title: {
+		      	text: 'The rise and fall of teams'
+		},
+		credits: {
+		      	enabled: false
+    		},
+		useHighStocks: true, 
+		series: []
+	};
 
         $scope.teams.forEach(function(team) {
             var series = {name: team.name, data:[]};
