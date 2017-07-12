@@ -30,7 +30,7 @@ Das ist alles.
 ## "The Dev Stuff"
 
     npm install;
-    npm run buuild:all; #to build once
+    npm run build:all; #to build once
 
     npm run serve; # to serve as an application
 

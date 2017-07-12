@@ -25,7 +25,7 @@ angular.module('easterdashApp').controller('MainCtrl', ['$scope', 'teamDb', func
     };
     var buildGraphs = function() {
         $scope.teamTotals = {labels: [], data: [[]]};
-        $scope.highChart = {options: highchartOptions, useHighStocks: true, series: []};
+        $scope.highChart = {options: highchartOptions, chartType: 'stock', series: []};
 
         $scope.teams.forEach(function(team) {
             var series = {name: team.name, data:[]};
